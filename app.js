@@ -53,7 +53,7 @@ app.use('/passenger', passengerRouter)
 app.use('/driver', driverRouter)
 app.use('/enterprise', enterpriseRouter)
 
-app.use(handleErrors);
+// app.use(handleErrors);
 
 
 app.use((req, res, next) => {

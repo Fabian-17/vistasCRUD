@@ -32,7 +32,8 @@ export async function createPassenger(passengerToCreate) {
       const newPassenger = await PassengerModel.create({ ...passengerToCreate, password: hashedPassword });
       return newPassenger;
     } catch (error) {
-      throw new Error (error.message);
+      // throw new Error (error.message);
+      console.error(error)
     }
 };
 

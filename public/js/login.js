@@ -13,13 +13,20 @@ formLogin.addEventListener('submit', async (e) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-    });
+    }).then(res => res.json())
+    .then(_res => {
+        setTimeout(() => {
+            window.location.href = '/menu';
+        }, 2000);
+
+    })
+    .catch(err => console.error(err))
 
 
-    if (!response.ok) {
-        const { message } = await response.json();
-        return Swal.fire('Error', message, 'error');
-    }
+    // if (!response.ok) {
+    //     const { message } = await response.json();
+    //     return Swal.fire('Error', message, 'error');
+    // }
 
     // const { message, token } = await response.json();
     // Swal.fire('Correcto', message, 'success');
@@ -28,9 +35,6 @@ formLogin.addEventListener('submit', async (e) => {
     // localStorage.setItem('token', token);
 
     // Redireccionar a la vista de tareas
-    setTimeout(() => {
-        window.location.href = '/menu';
-    }, 2000);
 
 });
 

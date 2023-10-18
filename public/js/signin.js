@@ -1,17 +1,17 @@
-const NuevoUsuario = document.querySelector('#formulario');
+const NuevoUsuario = document.querySelector("#formulario");
 
-NuevoUsuario.addEventListener('submit', async (e) => {
+NuevoUsuario.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const name = document.querySelector('#nombre').value;
-  const surname = document.querySelector('#apellido').value;
-  const email = document.querySelector('#email').value;
-  const phone_number = document.querySelector('#telefono').value;
-  const password = document.querySelector('#contraseña').value;
-  const confirmcontraseña = document.querySelector('#confirmcontraseña').value;
-  const date_birth = document.querySelector('#fecha_nac').value;
+  const name = document.querySelector('#nombre')/* .value */;
+  const surname = document.querySelector('#apellido')/* .value */;
+  const email = document.querySelector('#email')/* .value */;
+  const phone_number = document.querySelector('#telefono')/* .value */;
+  const password = document.querySelector('#contraseña')/* .value */;
+  const confirmcontraseña = document.querySelector('#confirmcontraseña')/* .value */;
+  const date_birth = document.querySelector('#fecha_nac')/* .value */;
 
-  if (password !== confirmcontraseña) {
+  if (password.value !== confirmcontraseña.value) {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -21,26 +21,41 @@ NuevoUsuario.addEventListener('submit', async (e) => {
   }
 
   try {
-    const response = await fetch('http://localhost:3000/passenger/register', {
+
+    console.log(JSON.stringify({
+      name: name.value,
+        surname: surname.value,
+        email: email.value,
+        phone_number: phone_number.value,
+        password: password.value,
+        date_birth: date_birth.value
+    }));
+
+    const response = fetch('http://locahost:3000/passenger/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name,
-        surname,
-        email,
-        phone_number,
-        password,
-        date_birth,
+        name: name.value,
+        surname: surname.value,
+        email: email.value,
+        phone_number: phone_number.value,
+        password: password.value,
+        date_birth: date_birth.value,
       }),
-    });
+    })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
 
-    if (!response.ok) {
-      throw new Error('Error en la solicitud');
-    }
+    // if (!response.ok) {
+    //   throw new Error('Error en la solicitud');
+    // }
 
-    const respToJson = await response.json();
+    const respToJson = response/* await response.json(); */
+
+    // console.log(respToJson);
 
     Swal.fire({
       icon: 'success',
@@ -52,10 +67,11 @@ NuevoUsuario.addEventListener('submit', async (e) => {
 
     NuevoUsuario.reset();
 
-    setTimeout(() => {
+    /* setTimeout(() => {
       window.location.href = '/login/usuario';
-    }, 2000);
+    }, 2000); */
   } catch (error) {
+    console.error(error)
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
