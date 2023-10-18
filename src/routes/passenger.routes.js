@@ -5,7 +5,7 @@ import { ctrlCreatePassenger,
     ctrlGetPassenger,
     ctrlUpdatePassenger,
     ctrlLoginPassenger } from '../controllers/passenger.controller.js';
-import { createPassengerSchema, loginPassengerSchema } from '../models/Schema/user.Schema.js';
+import { createPassengerSchema, loginPassengerSchema } from '../models/Schema/User.Schema.js';
 import {validator} from '../middlewares/validator.js';
 
 const passengerRouter = Router();

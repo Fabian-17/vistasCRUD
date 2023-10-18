@@ -13,19 +13,19 @@ export const PassengerModel = sequelize.define('Passenger', {
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         surname: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         phone_number: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             unique: {
                 args: true,
                 messge: 'Email already exists'
@@ -37,7 +37,7 @@ export const PassengerModel = sequelize.define('Passenger', {
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         estado: {
             type: DataTypes.BOOLEAN,
