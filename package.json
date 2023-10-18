@@ -1,0 +1,35 @@
+{
+    "name": "tlp1-teaminterior",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon app.js",
+        "start": "node app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.1.0",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "ejs": "^3.1.9",
+        "express": "^4.18.2",
+        "express-validator": "^7.0.1",
+        "helmet": "^7.0.0",
+        "jsonwebtoken": "^9.0.0",
+        "leaflet": "^1.9.4",
+        "morgan": "^1.10.0",
+        "mysql2": "^3.4.0",
+        "sequelize": "^6.32.1",
+        "sweetalert2": "^11.7.12",
+        "swiper": "^10.3.1",
+        "uuid": "^9.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1"
+    }
+}

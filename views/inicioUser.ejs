@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tuRemo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark  bg-warning mb-4">
+    <div class="container-fluid">
+      <img src="/img/taxi.jpg" style="width: 50px; opacity: .5;" alt="">
+      <a class="navbar-brand" href="/">tuRemo</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/empresa">Empresa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/support">Soporte</a>
+          </li>
+        </ul>
+
+        <form class="d-flex" role="search">
+          <a class="btn btn-outline-light m-2" aria-current="page" href="/registro">Registrarse</a>
+          <br>
+          <a class="btn btn-outline-light m-2" aria-current="page" href="/login">Ingresar</a>
+
+
+        </form>
+
+      </div>
+    </div>
+  </nav>
+  
+  <!-- <form class="d-flex m-2 p-2"style="border-bottom:1px solid #aaa" role="search">
+    <input class="form-control me-2" type="search" placeholder="Buscar calle" aria-label="Search">
+    <button class="btn btn-outline-warning "  type="submit">Buscar</button>
+  </form> -->
+
+  <form id="solicitudForm">
+  <input id="origen" type="text" class="form-control me-2 m-2 border-0 border-bottom" placeholder="¿Dónde estás?">
+  <input id="destino" type="text" class="form-control me-2 m-2 border-0 border-bottom" placeholder="'A dónde quieres ir?">
+  <div id="map"></div>
+  <span id="origen_lat"></span><br>
+  <span id="origen_lng"></span><br>
+
+  
+  <button style="display: block;" type="button" class="btn btn-warning m-2">Pedir remis</button>
+  </form>
+  
+
+  <!-- <div class="row g-5 ">
+
+    <picture style="display: inline-block; position: relative;" class="col-lg-6 d-flex justify-content-between">
+      <img style="width: 325px; margin-bottom: 50px;" src="../mapa20.jpg" alt="">
+    </picture>
+
+    <div class="col-md-5 col-lg-4 order-md-last ">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-warning">Costo de viaje</span>
+        <span class="badge bg-warning rounded-pill">3</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <h6 class="my-0">Tu ubicación</h6>
+            <small class="text-body-secondary">C. 25 de Mayo</small>
+          </div>
+          <span class="text-body-secondary">$400</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <h6 class="my-0">Destino</h6>
+            <small class="text-body-secondary">Supermercado Caceres</small>
+          </div>
+          <span class="text-body-secondary">$500</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <h6 class="my-0">Propina</h6>
+            <small class="text-body-secondary">Ayuda a chofer</small>
+          </div>
+          <span class="text-body-secondary">$300</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+          <div class="text-success">
+            <h6 class="my-0">Promo code</h6>
+            <small>EXAMPLECODE</small>
+          </div>
+          <span class="text-success">−$100</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (ARG)</span>
+          <strong>$1100</strong>
+        </li>
+      </ul>
+
+      <form class="card p-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Promo code">
+          <button type="submit" class="btn btn-warning">Canjear</button>
+        </div>
+      </form>
+    </div>
+    
+  </div> -->
+  
+  
+<footer style="padding: 10px;">
+  <div style="padding: 10px; border-top: 1px solid #000;">
+    © Copyright - Derechos Reservados - Team Interior 2023 - tuRemo
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="/js/mapping.js"></script>
+  <script src="/js/solicitarViaje.js" ></script>
+</body>
+</html>
