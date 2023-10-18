@@ -5,14 +5,14 @@ formLogin.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const email = document.querySelector('#email').value;
-    const contraseña = document.querySelector('#contraseña').value;
+    const password = document.querySelector('#contraseña').value;
 
-    const response = await fetch('http://localhost:3000/login/usuario', {
+    const response = await fetch('http://localhost:3000/passenger/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, contraseña }),
+        body: JSON.stringify({ email, password }),
     });
 
 
