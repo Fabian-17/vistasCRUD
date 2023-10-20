@@ -26,3 +26,12 @@ let swiper = new Swiper('.swiper-container', {
     swiper.update();
   });
   
+
+  document.getElementById('cerrar-sesion-btn').addEventListener('click', () => {
+    // Elimina el token del Local Storage
+    localStorage.removeItem('token');
+    
+    // Redirige al usuario a la página de inicio de sesión u otra página deseada
+    window.location.href = '/login'; // Cambia '/login' a la URL que corresponda
+  });
+  

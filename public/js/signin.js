@@ -39,61 +39,35 @@ NuevoUsuario.addEventListener("submit", (e) => {
   })
     .then((res) => {
       if (!res.ok) {
-        console.log(res);
-        alert("fallo");
-      } else {
+        return res.json(); // Parse the response body as JSON
+      }
+      return res.json().then((data) => {
         Swal.fire({
           icon: "success",
           title: "Usuario creado",
-          
-          // text: respToJson.message,
         });
         setTimeout(() => {
           window.location.href = '/login/usuario';
         }, 2000);
+      });
+    })
+    .then((errorData) => {
+      // Handle validation errors returned by the server
+      if (errorData && errorData.errors) {
+        const errorMessages = errorData.errors.map((error) => error.msg);
+        Swal.fire({
+          icon: "error",
+          title: "Error de validación",
+          text: errorMessages.join('\n'),
+        });
       }
     })
-    .catch((err) => console.log(err));
-
-  try {
-    console.log(
-      JSON.stringify({
-        name: name.value,
-        surname: surname.value,
-        email: email.value,
-        phone_number: phone_number.value,
-        password: password.value,
-        date_birth: date_birth.value,
-      })
-    );
-
-    // if (!response.ok) {
-    //   throw new Error('Error en la solicitud');
-    // }
-
-    // const respToJson = response; /* await response.json(); */
-
-    // console.log(respToJson);
-
-    // Swal.fire({
-    //   icon: 'success',
-    //   title: 'Usuario creado',
-    //   text: respToJson.message,
-    // });
-
-    // console.log(respToJson.message);
-
-    // NuevoUsuario.reset();
-
-    /* setTimeout(() => {
-      window.location.href = '/login/usuario';
-    }, 2000); */
-  } catch (error) {
-    console.error(error);
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: error.message,
+    .catch((err) => {
+      console.log(err);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: err.message,
+      });
     });
-  }
-});
+});  

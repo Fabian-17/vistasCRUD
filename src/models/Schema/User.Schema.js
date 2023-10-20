@@ -10,23 +10,23 @@ export const createPassengerSchema = [
       .exists()
       .notEmpty().withMessage('The surname must not be empty.')
       .isString().withMessage('The surname must be string.'),
-    // body('password')
-    //   .exists()
-    //   .notEmpty().withMessage('Password must not be empty.')
-    //   .isString().withMessage('The password must be a string and must contain at least one number.')
-    //   .custom((value) => {
-    //     // Validar que la contraseña tenga al menos 8 caracteres
-    //     if (value.length < 8) {
-    //       throw new Error('Password must be at least 8 characters long.');
-    //     }
+     body('password')
+       .exists()
+       .notEmpty().withMessage('Password must not be empty.')
+       .isString().withMessage('The password must be a string and must contain at least one number.')
+       .custom((value) => {
+         // Validar que la contraseña tenga al menos 8 caracteres
+         if (value.length < 8) {
+           throw new Error('Password must be at least 8 characters long.');
+         }
   
-    //     // Validar que la contraseña contenga al menos un número
-    //     if (!/\d/.test(value)) {
-    //       throw new Error('Password must contain at least one number.');
-    //     }
+         // Validar que la contraseña contenga al menos un número
+         if (!/\d/.test(value)) {
+           throw new Error('Password must contain at least one number.');
+         }
   
-    //     return true;
-    //   }),
+         return true;
+       }),
     body('email')
       .exists()
       .notEmpty().withMessage('Email should not be empty.')

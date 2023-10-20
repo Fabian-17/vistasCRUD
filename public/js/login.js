@@ -1,4 +1,3 @@
-
 const formLogin = document.querySelector('#formulario');
 
 formLogin.addEventListener('submit', async (e) => {
@@ -13,28 +12,25 @@ formLogin.addEventListener('submit', async (e) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-    }).then(res => res.json())
-    .then(_res => {
+    })
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Error en la autenticación'); // Opcional: personaliza el mensaje de error
+        }
+        return res.json();
+    })
+    .then(data => {
+        // Almacena el token en el Local Storage
+        localStorage.setItem('token', data.token);
+
+        // Redirige a la página de 'menu' después de 2 segundos
         setTimeout(() => {
             window.location.href = '/menu';
         }, 2000);
-
     })
-    .catch(err => console.error(err))
-
-
-    // if (!response.ok) {
-    //     const { message } = await response.json();
-    //     return Swal.fire('Error', message, 'error');
-    // }
-
-    // const { message, token } = await response.json();
-    // Swal.fire('Correcto', message, 'success');
-
-    // // Se almacena el token en el local storage
-    // localStorage.setItem('token', token);
-
-    // Redireccionar a la vista de tareas
-
+    .catch(err => {
+        console.error(err);
+        // Puedes mostrar un mensaje de error aquí usando SweetAlert o similar
+        Swal.fire('Error', err.message, 'error');
+    });
 });
-
